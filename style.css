@@ -1,3 +1,25 @@
 #removeBtn{
     margin-left: 5px;
 }
+h1{
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    text-align: center;
+}
+#list-el{
+    display: flex;
+    justify-content: center;
+}
+.listitems{
+    font-family: 'Courier New', Courier, monospace;
+}
+input{
+    font-family: 'Courier New', Courier, monospace;
+}
+button{
+    font-family: 'Courier New', Courier, monospace;
+}
+#removeBtn{
+    font-weight: 900;
+}

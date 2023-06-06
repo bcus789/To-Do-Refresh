@@ -15,7 +15,7 @@ submitBtn.addEventListener("click", function(){
 function renderList(){
     let listItems = ""
     for (let i = 0; i<list.length; i++){
-        listItems += `<li id="${[i]}">${list[i]}<button id="removeBtn" onclick="remove(${[i]})">Remove</button></li>`
+        listItems += `<p class="listitems" id="${[i]}">${list[i]}<button id="removeBtn" onclick="remove(${[i]})">X</button></p>`
     }
     listEl.innerHTML = listItems
 }
