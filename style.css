@@ -23,5 +23,15 @@ h1{
     font-weight: 900;
 }
 #submit-btn{
-    font-family: 'Courier New', Courier, monospace 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+}
+
+#completeBtn{
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.listitems{
+    font-weight: 900;
 }

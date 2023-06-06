@@ -6,27 +6,39 @@ const paragraph = document.getElementById("p")
 let list = []
 
 
-
-submitBtn.addEventListener("click", function(){
-    if (inputEl.value === ""){
+inputEl.addEventListener("click", function () {
+    if (inputEl.value === "Please Enter a Task") {
+        inputEl.value = ""
+    }
+})
+submitBtn.addEventListener("click", function () {
+    if (inputEl.value === "") {
         inputEl.value = "Please Enter a Task"
-    } else if(inputEl.value === "Please Enter a Task"){  
+    } else if (inputEl.value === "Please Enter a Task") {
     } else {
-    list.push(inputEl.value)
-    inputEl.value = ""
-    renderList()
-}})
+        list.push(inputEl.value)
+        inputEl.value = ""
+        renderList()
+    }
+})
 
-function renderList(){
+function renderList() {
     let listItems = ""
-    for (let i = 0; i<list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         listItems += `<p class="listitems" id="${[i]}"><button id="removeBtn" onclick="remove(${[i]})">X</button>${list[i]}</p>`
     }
     listEl.innerHTML = listItems
 }
 
-function remove(item){
+function remove(item) {
     list.splice(item, 1)
-    console.log(list)
     renderList()
 }
+
+// function complete(item) {
+//     let strikedItem = document.getElementsByClassName("ls")
+//     strikedItem.style.textDecoration = "line-through"
+//     console.log("hello")
+//     renderList()
+// }
+
