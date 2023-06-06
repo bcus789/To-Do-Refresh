@@ -24,7 +24,7 @@ submitBtn.addEventListener("click", function () {
 function renderList() {
     let listItems = ""
     for (let i = 0; i < list.length; i++) {
-        listItems += `<p class="listitems" id="${[i]}"><button id="removeBtn" onclick="remove(${[i]})">X</button><button id="completeBtn" onclick="complete(${[i]})">Done</button>${list[i]}</p>`
+        listItems += `<p class="listitems" id="${[i]}"><button id="removeBtn" onclick="remove(${[i]})">X</button>${list[i]}</p>`
     }
     listEl.innerHTML = listItems
 }
@@ -34,9 +34,9 @@ function remove(item) {
     renderList()
 }
 
-function complete(item) {
-    let striked = item.toString()
-    let strikedItem = document.getElementById(striked)
-    strikedItem.style.textDecoration = "line-through"
-}
+// function complete(item) {
+//     let striked = item.toString()
+//     let strikedItem = document.getElementById(striked)
+//     strikedItem.style.textDecoration = "line-through"
+// }
 
