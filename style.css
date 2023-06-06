@@ -5,14 +5,15 @@ body{
     font-family: 'Courier New', Courier, monospace
 }
 #list-el{
-margin-left: 20px;
+margin-left: -23px;
 }
 #removeBtn{
     font-weight: 900;
 }
 #maindiv{ 
-    margin-left: 30%;
-    margin-right: 30%;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #inputdiv{
