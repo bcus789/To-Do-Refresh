@@ -2,15 +2,21 @@ const inputEl = document.getElementById("input-el")
 const submitBtn = document.getElementById("submit-btn")
 const listEl = document.getElementById("list")
 const removeBtn = document.getElementById("removeBtn")
+const paragraph = document.getElementById("p")
 let list = []
 
 
 
 submitBtn.addEventListener("click", function(){
+    if (inputEl.value === ""){
+        inputEl.value = "Please Enter a Task"
+    } else if(inputEl.value === "Please Enter a Task"){
+    
+    } else {
     list.push(inputEl.value)
     inputEl.value = ""
     renderList()
-})
+}})
 
 function renderList(){
     let listItems = ""
@@ -25,3 +31,7 @@ function remove(item){
     console.log(list)
     renderList()
 }
+
+paragraph.addEventListener("click", function(){
+    paragraph.style.textDecoration = "line-through"
+})
