@@ -10,8 +10,7 @@ let list = []
 submitBtn.addEventListener("click", function(){
     if (inputEl.value === ""){
         inputEl.value = "Please Enter a Task"
-    } else if(inputEl.value === "Please Enter a Task"){
-    
+    } else if(inputEl.value === "Please Enter a Task"){  
     } else {
     list.push(inputEl.value)
     inputEl.value = ""
@@ -31,7 +30,3 @@ function remove(item){
     console.log(list)
     renderList()
 }
-
-paragraph.addEventListener("click", function(){
-    paragraph.style.textDecoration = "line-through"
-})
