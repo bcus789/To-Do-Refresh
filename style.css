@@ -1,25 +1,26 @@
 #removeBtn{
-    margin-left: 5px;
-}
-h1{
-    font-family: 'Courier New', Courier, monospace;
+    margin-right: 5px;
 }
 body{
-    text-align: center;
+    font-family: 'Courier New', Courier, monospace
 }
 #list-el{
-    display: flex;
-    justify-content: center;
-}
-.listitems{
-    font-family: 'Courier New', Courier, monospace;
-}
-input{
-    font-family: 'Courier New', Courier, monospace;
-}
-button{
-    font-family: 'Courier New', Courier, monospace;
+margin-left: 20px;
 }
 #removeBtn{
     font-weight: 900;
+}
+#maindiv{ 
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+#inputdiv{
+    text-align: center;
+}
+h1{
+    font-weight: 900;
+}
+#submit-btn{
+    font-family: 'Courier New', Courier, monospace 
 }
