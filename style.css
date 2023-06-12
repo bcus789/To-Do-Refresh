@@ -2,7 +2,8 @@
     margin-right: 5px;
 }
 body{
-    font-family: 'Courier New', Courier, monospace
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 100px;
 }
 #list-el{
 margin-left: -23px;
