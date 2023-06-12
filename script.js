@@ -15,6 +15,7 @@ inputEl.addEventListener("click", function () {
         inputEl.value = ""
     }
 })
+
 submitBtn.addEventListener("click", function () {
     if (inputEl.value === "") {
         inputEl.value = "Please Enter a Task"
@@ -24,6 +25,13 @@ submitBtn.addEventListener("click", function () {
         inputEl.value = ""
         localStorage.setItem("list", JSON.stringify(list))
         renderList()
+    }
+})
+
+inputEl.addEventListener("keypress", function(e){
+    if (e.key === "Enter") {
+        e.preventDefault();
+        submitBtn.click();
     }
 })
 

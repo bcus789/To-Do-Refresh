@@ -13,7 +13,7 @@
     <div id="inputdiv">
     <h1 id="title">To Do List</h1>
     <input id="input-el" autocomplete="off"></input>
-    <button id="submit-btn">Add Task</button>
+    <button onKeyPress="return checkSubmit(event)" id="submit-btn">Add Task</button>
     </div>
     <div id="list-el">
         <ul id="list"></ul>
