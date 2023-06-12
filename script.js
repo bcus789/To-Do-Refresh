@@ -3,7 +3,7 @@ const submitBtn = document.getElementById("submit-btn")
 const listEl = document.getElementById("list")
 const removeBtn = document.getElementById("removeBtn")
 let list = []
-
+let localListItems = JSON.parse(localStorage.getItem("list"))
 
 inputEl.addEventListener("click", function () {
     if (inputEl.value === "Please Enter a Task") {
@@ -17,10 +17,14 @@ submitBtn.addEventListener("click", function () {
     } else {
         list.push(inputEl.value)
         inputEl.value = ""
+        localStorage.setItem("list", JSON.stringify(list))
         renderList()
     }
 })
-
+if (localListItems){
+    list = localListItems
+    renderList()
+}
 function renderList() {
     let listItems = ""
     for (let i = 0; i < list.length; i++) {
