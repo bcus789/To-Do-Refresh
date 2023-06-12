@@ -1,9 +1,9 @@
 const inputEl = document.getElementById("input-el")
-const submitBtn = document.getElementById("submit-btn")
 const listEl = document.getElementById("list")
+const submitBtn = document.getElementById("submit-btn")
 const removeBtn = document.getElementById("removeBtn")
-let list = []
 let localListItems = JSON.parse(localStorage.getItem("list"))
+let list = []
 
 if (localListItems){
     list = localListItems
