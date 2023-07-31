@@ -1,32 +1,10 @@
 const inputEl = document.getElementById("input-el")
 const listEl = document.getElementById("list")
 const submitBtn = document.getElementById("submit-btn")
-const removeBtn = document.getElementById("removeBtn")
-let localListItems = JSON.parse(localStorage.getItem("list"))
-let myList = []
+const localListItems = JSON.parse(localStorage.getItem("list"))
 
-if (localListItems){
-    myList = localListItems
-    render(myList)
-}
 
-inputEl.addEventListener("click", function () {
-    if (inputEl.value === "Please Enter a Task") {
-        inputEl.value = ""
-    }
-})
-
-submitBtn.addEventListener("click", function () {
-    if (inputEl.value === "") {
-        inputEl.value = "Please Enter a Task"
-    } else if (inputEl.value === "Please Enter a Task") {
-    } else {
-        myList.push(inputEl.value)
-        inputEl.value = ""
-        localStorage.setItem("list", JSON.stringify(myList))
-        render(myList)
-    }
-})
+checkStorage()
 
 inputEl.addEventListener("keypress", function(e){
     if (e.key === "Enter") {
@@ -35,24 +13,58 @@ inputEl.addEventListener("keypress", function(e){
     }
 })
 
-function render(list) {
-    let listItems = ""
-    for (let i = 0; i < list.length; i++) {
-        listItems += `<p class="listitems" id="${[i]}"><button id="removeBtn" onclick="remove(${[i]})">X</button>${list[i]}</p>`
+function checkStorage(){
+    if (localStorage){
+        listEl.innerHTML = localListItems
+        let deleteButton = document.querySelectorAll(".delete-button")
+        deleteButton.forEach((button) => button.addEventListener('click', deleteItem))
+        let completeButton = document.querySelectorAll(".complete-button")
+        completeButton.forEach((button) => button.addEventListener('click', completeItem))
+        localStorage.setItem("list", JSON.stringify(listEl.innerHTML))
     }
-    listEl.innerHTML = listItems
 }
 
-function remove(item) {
-    myList.splice(item, 1)
-    localStorage.setItem("list", JSON.stringify(myList))
-    render(myList)
+submitBtn.addEventListener("click", checkEmpty)
+
+function checkEmpty() {
+    if (inputEl.value === "") {
+        alert("Please enter a task")
+    } else {
+        addToList()
+    }
+}
+
+function addToList() {
+    let newItem = document.createElement("p")
+    let deleteBtn = document.createElement("button")
+    let completeBtn = document.createElement("button")
+    completeBtn.setAttribute("class", "complete-button")
+    deleteBtn.setAttribute("class", "delete-button")
+    deleteBtn.textContent = "X"
+    completeBtn.setAttribute("class", "complete-button")
+    completeBtn.textContent = "Done"
+    newItem.textContent = inputEl.value
+    newItem.prepend(completeBtn)
+    newItem.prepend(deleteBtn)
+    listEl.appendChild(newItem)
+    let deleteButton = document.querySelectorAll(".delete-button")
+    deleteButton.forEach((button) => button.addEventListener('click', deleteItem))
+    let completeButton = document.querySelectorAll(".complete-button")
+    completeButton.forEach((button) => button.addEventListener('click', completeItem))
+    localStorage.setItem("list", JSON.stringify(listEl.innerHTML))
+    inputEl.value = ""
 }
 
 
-// function complete(item) {
-//     let striked = item.toString()
-//     let strikedItem = document.getElementById(striked)
-//     strikedItem.style.textDecoration = "line-through"
-// }
+
+function deleteItem(e) {
+    e.currentTarget.parentElement.remove()
+    localStorage.setItem("list", JSON.stringify(listEl.innerHTML))
+}
+
+function completeItem(e) {
+    e.currentTarget.parentElement.style.textDecoration = "line-through"
+    localStorage.setItem("list", JSON.stringify(listEl.innerHTML))
+}
+
 
