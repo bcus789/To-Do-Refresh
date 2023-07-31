@@ -19,3 +19,11 @@ h1{
     font-weight: 900;
 }
 
+button{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.complete-button{
+margin-right: 20px;
+margin-left: 5px;
+}

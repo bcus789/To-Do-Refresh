@@ -1,13 +1,17 @@
 const inputEl = document.getElementById("input-el")
 const listEl = document.getElementById("list")
 const submitBtn = document.getElementById("submit-btn")
-const removeBtn = document.getElementById("removeBtn")
-
-let localListItems = JSON.parse(localStorage.getItem("list"))
-let myList = []
+const localListItems = JSON.parse(localStorage.getItem("list"))
 
 
 checkStorage()
+
+submitBtn.addEventListener("keyup", function(event){
+    if (event.key == "Enter"){
+        event.preventDefault()
+        submitBtn.click()
+    }
+})
 
 function checkStorage(){
     if (localStorage){
@@ -34,13 +38,14 @@ function addToList() {
     let newItem = document.createElement("p")
     let deleteBtn = document.createElement("button")
     let completeBtn = document.createElement("button")
+    completeBtn.setAttribute("class", "complete-button")
     deleteBtn.setAttribute("class", "delete-button")
     deleteBtn.textContent = "X"
     completeBtn.setAttribute("class", "complete-button")
     completeBtn.textContent = "Done"
     newItem.textContent = inputEl.value
-    newItem.append(completeBtn)
-    newItem.append(deleteBtn)
+    newItem.prepend(completeBtn)
+    newItem.prepend(deleteBtn)
     listEl.appendChild(newItem)
     let deleteButton = document.querySelectorAll(".delete-button")
     deleteButton.forEach((button) => button.addEventListener('click', deleteItem))
