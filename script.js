@@ -6,10 +6,10 @@ const localListItems = JSON.parse(localStorage.getItem("list"))
 
 checkStorage()
 
-submitBtn.addEventListener("keyup", function(event){
-    if (event.key == "Enter"){
-        event.preventDefault()
-        submitBtn.click()
+inputEl.addEventListener("keypress", function(e){
+    if (e.key === "Enter") {
+        e.preventDefault();
+        submitBtn.click();
     }
 })
 
